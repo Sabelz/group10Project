@@ -1,4 +1,4 @@
-# Project For Group 10
+# Project For Group 10 - Music Recommendation
 # Data Engineering 1
 Hugo Wiggman <br />
 Zhihao Yang <br />
