@@ -1,0 +1,25 @@
+1: Need these prots open in security group
+TCP port 2377
+TCP and UDP port 7946
+UDP port 4789
+TCP 8080
+TCP 8081
+
+2: Run on master
+docker swarm init
+
+3: Then run the output from the swarm init command on the worker
+docker swarm join ... ....
+
+4:Need to build the images, build master in master container and worker in worker container
+docker build -t spark_worker -f spark_worker .
+docker build -t spark-master -f spark_master .
+
+5: Label the nodes
+docker node ls
+docker node update --label-add role=worker {worker_node_id}
+docker node update --label-add role=master {master_node_id}
+
+6: Run the service
+docker stack deploy --compose-file docker-compose.yml sparkdemo
+
